@@ -1,0 +1,37 @@
+import numpy as np
+n=(input("Enter Specified Logic Gate:"))
+
+if n=="AND":
+   x=np.array([[-1,-1],[-1,1],[1,-1],[1,1]])
+   y=np.array([-1,-1,-1,1]) 
+
+elif n=="OR":
+  x=np.array([[-1,-1],[1,-1],[-1,1],[1,1]])
+  y=np.array([[-1,1,1,1]])
+
+elif n=="NAND":
+    x=np.array([[-1,-1],[1,-1],[-1,1],[1,1]])
+    y=np.array([[1,1,1,-1]])
+
+elif n=="NOR":
+    x=np.array([[-1,-1],[1,-1],[-1,1],[1,1]])
+    y=np.array([[1,-1,-1,-1]])
+
+
+elif n=="XOR":
+    x=np.array([[-1,-1],[1,-1],[-1,1],[1,1]])
+    y=np.array([[-1,1,1,-1]])
+
+elif n=="XNOR":
+    x=np.array([[-1,-1],[1,-1],[-1,1],[1,1]])
+    y=np.array([[1,-1,-1,1]])
+
+def ilogic():
+ hebb=1
+ w1,w2,b=0,0,0
+ for xi,yi in zip(x,y):
+      w1 += xi[0]*yi
+      w2 += xi[1]*yi
+      b += yi
+ print(f"Final Weights: w1={w1},w2={w2},b={b}")
+ilogic()
